@@ -75,7 +75,7 @@ $users = $users;
                                           <div class="iq-friendlist-block">
                                              <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                   <a href="<?php echo route('admin.signups.detail', 1);?>">
+                                                <a href="<?php echo route('admin.signups.detail', (string)($users[$i]->_id));?>">
                                                    <?php
                                                       $picURL = base_url()."admin_assets/img/generic-user.png";
                                                       if (!empty($users[$i]['profile_photo_url'])){
@@ -119,7 +119,7 @@ $users = $users;
                                           <div class="iq-friendlist-block">
                                              <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                   <a href="<?php echo route('admin.signups.detail', 1);?>">
+                                                <a href="<?php echo route('admin.signups.detail', (string)($users[$i]->_id));?>">
                                                    <?php
                                                       $picURL = base_url()."admin_assets/img/generic-user.png";
                                                       if (!empty($users[$i]['profile_photo_url'])){
@@ -165,7 +165,7 @@ $users = $users;
                                           <div class="iq-friendlist-block">
                                              <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                   <a href="<?php echo route('admin.signups.detail', 1);?>">
+                                                   <a href="<?php echo route('admin.signups.detail', (string)($users[$i]->_id));?>">
                                                    <?php
                                                       $picURL = base_url()."admin_assets/img/generic-user.png";
                                                       if (!empty($users[$i]['profile_photo_url'])){
@@ -212,7 +212,7 @@ $users = $users;
                                           <div class="iq-friendlist-block">
                                              <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                   <a href="<?php echo route('admin.signups.detail', 1);?>">
+                                                <a href="<?php echo route('admin.signups.detail', (string)($users[$i]->_id));?>">
                                                    <?php
                                                       $picURL = base_url()."admin_assets/img/generic-user.png";
                                                       if (!empty($users[$i]['profile_photo_url'])){
@@ -256,7 +256,7 @@ $users = $users;
                                           <div class="iq-friendlist-block">
                                              <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                   <a href="<?php echo route('admin.signups.detail', 1);?>">
+                                                <a href="<?php echo route('admin.signups.detail', (string)($users[$i]->_id));?>">
                                                    <?php
                                                       $picURL = base_url()."admin_assets/img/generic-user.png";
                                                       if (!empty($users[$i]['profile_photo_url'])){
@@ -302,7 +302,7 @@ $users = $users;
                                           <div class="iq-friendlist-block">
                                              <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                   <a href="<?php echo route('admin.signups.detail', 1);?>">
+                                                <a href="<?php echo route('admin.signups.detail', (string)($users[$i]->_id));?>">
                                                    <?php
                                                       $picURL = base_url()."admin_assets/img/generic-user.png";
                                                       if (!empty($users[$i]['profile_photo_url'])){

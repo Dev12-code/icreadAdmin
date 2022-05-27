@@ -25,7 +25,7 @@ class MY_Model extends CI_Model
             'mongodb+srv://icered_admin:kjaYkKQeyPtDj6qy@members.br06s.mongodb.net/?authSource=admin&readPreference=primary&ssl=true'
         );
         $MongoDBClient->listDatabases();
-        $this->db = $MongoDBClient ->icered;
+        $this->db = $MongoDBClient ->icered;        
         // $result =  $this->db->admin->find()->toArray();
 
         // print_r(json_encode( $result));

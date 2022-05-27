@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
+ * Created by PhpStorm. 
  * User: zeus
  * Date: 2019/6/19
  * Time: 4:38 AM
@@ -23,8 +23,12 @@ class DashboardController extends MY_Controller
     }
 
     public function index() {
+        $dataToBeDisplayed['posts'] = $this->Post_model->gePostsListInDashboard();      
 
+      //  print_r(json_encode($dataToBeDisplayed));
+        // print_r((string)($dataToBeDisplayed['posts'][0]->_id));
+        //exit;
         // $dataToBeDisplayed = $this->makeComponentLayout(self::PAGE_LIST);
-        $this->load->view('admin/dashboard');
+        $this->load->view('admin/dashboard',    $dataToBeDisplayed);
     }
 }

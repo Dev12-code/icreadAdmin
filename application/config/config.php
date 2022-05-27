@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://192.168.0.191'; //Test
+$config['base_url'] = 'http://192.168.0.191/admin'; //Test
 //$config['base_url'] = 'https://admin.myatb.co.uk'; //Admin panel
 //$config['base_url'] = 'https://api.myatb.co.uk'; //Live API
 

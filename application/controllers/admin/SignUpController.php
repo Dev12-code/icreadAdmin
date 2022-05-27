@@ -29,7 +29,10 @@ class SignUpController extends MY_Controller
     }
 
     public function detail($userid) {
-        $this->load->view('admin/user/userdetail');
+        // print_r($userid);
+        // exit;
+        $dataToBeDisplayed['user'] = $this->User_model->getUserDeatil(array('_id' => new MongoDB\BSON\ObjectID($userid)));    
+        $this->load->view('admin/user/userdetail',$dataToBeDisplayed);
 
     }
 

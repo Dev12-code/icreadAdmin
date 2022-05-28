@@ -231,8 +231,34 @@ $posts = $user['posts'];
                                                          ?>    
                                                             <img src="<?php echo $posts[$i]['attachments'][$j]['data'] ?>" class="img-responsive" style="width:100%,height:100%">
 
-                                                         <?php } else{?>
-                                                               <iframe  src="<?php echo $posts[$i]['attachments'][$j]['data'] ?>" allowfullscreen  style="width:100%,height:100%"></iframe>
+                                                         
+                                                         <?php } else{  
+                                                               $array = explode("&&thumbnail@@",$posts[$i]['attachments'][$j]['data']);
+
+                                                            ?>
+                                                            
+                                                               
+                                                                     <video
+                                                                        id="my-video"
+                                                                        class="video-js"
+                                                                        controls
+                                                                        preload="auto"
+                                                                        width="930px"
+                                                                        height="600px"
+                                                                        poster= "<?php echo $array[1];?>"
+                                                                        data-setup="{}"
+                                                                     >
+                                                                        <source src="<?php echo $array[0];?>" type="video/mp4" />
+                                                                        <p class="vjs-no-js">
+                                                                           To view this video please enable JavaScript, and consider upgrading to a
+                                                                           web browser that
+                                                                           <a href="https://videojs.com/html5-video-support/" target="_blank"
+                                                                           >supports HTML5 video</a
+                                                                           >
+                                                                        </p>
+                                                                     </video>
+               
+
 
                                                          <?php };?>     
                                                       </div> 
@@ -615,7 +641,8 @@ $posts = $user['posts'];
     <script src="<?php echo base_url();?>/assets/js/app.js"></script>
     <script src="../vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
     <script src="<?php echo base_url();?>/assets/js/lottie.js"></script>
-    
+    <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+
     <script>
       
       console.log("=====");

@@ -28,6 +28,7 @@ $posts = $posts;
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/font-awesome-line-awesome/css/all.min.css">
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body class="  ">
@@ -143,10 +144,35 @@ $posts = $posts;
                                           <div class="gallery-cell">
                                              <?php if($posts[$i]['attachments'][$j]['type'] == 'image'){
                                              ?>    
-                                                 <img src="<?php echo $posts[$i]['attachments'][$j]['data'] ?>" class="img-responsive" style="width:100%,height:100%">
+                                                 <img src="<?php echo $posts[$i]['attachments'][$j]['data'] ?>" class="img-responsive" style="width:500px,height:100%">
 
-                                             <?php } else{?>
-                                                   <iframe  src="<?php echo $posts[$i]['attachments'][$j]['data'] ?>" allowfullscreen  style="width:100%,height:100%"></iframe>
+                                             <?php } else{  
+                                                   $array = explode("&&thumbnail@@",$posts[$i]['attachments'][$j]['data']);
+
+                                                ?>
+                                                
+                                                    
+                                                         <video
+                                                            id="my-video"
+                                                            class="video-js"
+                                                            controls
+                                                            preload="auto"
+                                                            width="930px"
+                                                            height="600px"
+                                                            poster= "<?php echo $array[1];?>"
+                                                            data-setup="{}"
+                                                         >
+                                                            <source src="<?php echo $array[0];?>" type="video/mp4" />
+                                                            <p class="vjs-no-js">
+                                                               To view this video please enable JavaScript, and consider upgrading to a
+                                                               web browser that
+                                                               <a href="https://videojs.com/html5-video-support/" target="_blank"
+                                                               >supports HTML5 video</a
+                                                               >
+                                                            </p>
+                                                         </video>
+   
+
 
                                              <?php };?>     
                                           </div> 
@@ -314,6 +340,9 @@ $posts = $posts;
       $("#li_users").addClass('');
    
    </script>   
+
+   <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+
     <!-- offcanvas start -->
  
     

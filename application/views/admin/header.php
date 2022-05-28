@@ -16,8 +16,9 @@
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/font-awesome-line-awesome/css/all.min.css">
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/css/carrousesl.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+      <link rel="stylesheet" href="<?php echo base_url();?>/assets/css//flickity.css">
+      <script src="<?php echo base_url();?>/assets/js/flickity.js"></script>
+      <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
 
   </head>
   <body class="  ">

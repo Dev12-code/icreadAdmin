@@ -1,8 +1,8 @@
 <?php
-class User_Model extends MY_Model{
-    public function getUsersListInDashboard() {
-        $users = $this->db -> users->find()->toArray();
-        return $users;
+class Interesting_model extends MY_Model{
+    public function getInterestingListInDashboard() {
+        $interesting = $this->db -> interests->find()->toArray();
+        return $interesting;
     }
     public function getUserDeatil($where = array()) {
         $user = $this->db -> users->findone($where);
@@ -10,7 +10,7 @@ class User_Model extends MY_Model{
         for ($i = 0; $i < count($posts); $i++) {          
             $post_id = (string)($posts[$i]->_id);
             $comments = $this->db -> comments->find(array('post_id' =>$post_id ))->toArray();
-            $posts[$i]['user'] = $user;
+           $posts[$i]['user'] = $user;
             for ($j = 0; $j < count($comments); $j++) {
                 $comments[$j]['user'] =  $this->db -> users->findone(array('_id' =>new MongoDB\BSON\ObjectID($comments[$j]['commmenter_user_id'])));
             }
@@ -19,11 +19,5 @@ class User_Model extends MY_Model{
         $user['posts'] = $posts;
         return $user;
     }
-
-    public function blockUser($whereArray = array(), $setArray = array()) {
-        $user = $this->db -> users->updateOne($whereArray, ['$set' => $setArray]);       
-        return $user;
-    }
-
 
 }

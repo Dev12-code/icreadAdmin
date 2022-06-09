@@ -72,18 +72,7 @@ $posts = $posts;
                                     <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
                                     <i class="ri-more-fill"></i>
                                     </span>
-                                    <div class="dropdown-menu m-0 p-0">
-                                       <a class="dropdown-item p-3" href="#">
-                                          <div class="d-flex align-items-top">
-                                             <div class="h4">
-                                                <i class="ri-save-line"></i>
-                                             </div>
-                                             <div class="data ms-2">
-                                                <h6>Save Post</h6>
-                                                <p class="mb-0">Add this to your saved items</p>
-                                             </div>
-                                          </div>
-                                       </a>
+                                    <div class="dropdown-menu m-0 p-0">                                      
                                        <a class="dropdown-item p-3" href="#">
                                           <div class="d-flex align-items-top">
                                              <i class="ri-close-circle-line h4"></i>
@@ -92,25 +81,7 @@ $posts = $posts;
                                                 <p class="mb-0">See fewer posts like this.</p>
                                              </div>
                                           </div>
-                                       </a>
-                                       <a class="dropdown-item p-3" href="#">
-                                          <div class="d-flex align-items-top">
-                                             <i class="ri-user-unfollow-line h4"></i>
-                                             <div class="data ms-2">
-                                                <h6>Unfollow User</h6>
-                                                <p class="mb-0">Stop seeing posts but stay friends.</p>
-                                             </div>
-                                          </div>
-                                       </a>
-                                       <a class="dropdown-item p-3" href="#">
-                                          <div class="d-flex align-items-top">
-                                             <i class="ri-notification-line h4"></i>
-                                             <div class="data ms-2">
-                                                <h6>Notifications</h6>
-                                                <p class="mb-0">Turn on notifications for this post</p>
-                                             </div>
-                                          </div>
-                                       </a>
+                                       </a>                                       
                                     </div>
                                  </div>
                               </div>

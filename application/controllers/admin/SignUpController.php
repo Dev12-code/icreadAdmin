@@ -25,6 +25,7 @@ class SignUpController extends MY_Controller
     public function index() {
         $dataToBeDisplayed['users'] = $this->User_model->getUsersListInDashboard();    
         // print_r(json_encode( $dataToBeDisplayed['users']));
+
         $this->load->view('admin/user/userlist',  $dataToBeDisplayed);
     }
 
@@ -36,15 +37,11 @@ class SignUpController extends MY_Controller
 
     }
 
-    public function ajax_get_login_chart() {
-        $loginHistory = array();
-        $userId = $this->input->post('userId');
-        $startDate = $this->input->post('start');
-        $endDate = $this->input->post('end');
-        $startDateStr = date('Y-m-d', $startDate);
-        $endDateStr = date('Y-m-d', $endDate);
-        $retVal = $this->LoginHistory_model->getLoginHistoryTimeInterval($userId, $startDateStr, $endDateStr);
-        echo json_encode($retVal);
-//        echo json_encode(array($startDateStr, $endDateStr));
+
+    public function block_user($userid) {
+        $user =  $this->User_model->getUserDeatil(array('_id' => new MongoDB\BSON\ObjectID($userid)));
+        $this->User_model->blockUser(array('_id' => new MongoDB\BSON\ObjectID($userid))  ,array('userBlocked' => !$user['userBlocked']));
+        redirect('/admin/signups');
     }
+
 }

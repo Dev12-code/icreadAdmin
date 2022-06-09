@@ -72,9 +72,6 @@ class AdminController extends MY_Controller
   
     }
 
-    function doUpload()
-    {
-        
-        }
+   
 	
 }

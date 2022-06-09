@@ -5,6 +5,7 @@ $user_id= $this->session->userdata('user_id');
 if(!$user_id){
 	redirect(route('admin.auth.login'));
 }
+
 $users = $users;
 ?>
 
@@ -97,7 +98,17 @@ $users = $users;
                                                       </span>
                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
                                                          <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
-                                                         <a class="dropdown-item" href="#">Block User</a>                                                   
+                                                         <a class="dropdown-item" href="<?php echo route('admin.signups.block', (string)($users[$i]->_id));?>">
+                                                         <?php
+                                                               
+                                                               if ($users[$i]['userBlocked']){
+                                                                 echo "Unblock User";
+                                                               }else{
+                                                                  echo "Block User";
+                                                               }
+                                                          ?>
+                                                            
+                                                         </a>                                                   
                                                       </div>
                                                    </div>
                                                 </div>
@@ -141,7 +152,17 @@ $users = $users;
                                                       </span>
                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
                                                          <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
-                                                         <a class="dropdown-item" href="#">Block User</a>                                                   
+                                                         <a class="dropdown-item" href="<?php echo route('admin.signups.block', (string)($users[$i]->_id));?>">
+                                                         <?php
+                                                               
+                                                               if ($users[$i]['userBlocked']){
+                                                                 echo "Unblock User";
+                                                               }else{
+                                                                  echo "Block User";
+                                                               }
+                                                          ?>
+                                                            
+                                                         </a>                                                   
                                                       </div>
                                                    </div>
                                                 </div>
@@ -186,8 +207,18 @@ $users = $users;
                                                       <i class="ri-check-line me-1 text-white"></i> Action
                                                       </span>
                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
-                                                         <a class="dropdown-item" href="#">Send Notification</a>
-                                                         <a class="dropdown-item" href="#">Block User</a>                                                   
+                                                         <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
+                                                         <a class="dropdown-item" href="<?php echo route('admin.signups.block', (string)($users[$i]->_id));?>">
+                                                         <?php
+                                                               
+                                                               if ($users[$i]['userBlocked']){
+                                                                 echo "Unblock User";
+                                                               }else{
+                                                                  echo "Block User";
+                                                               }
+                                                          ?>
+                                                            
+                                                         </a>                                                   
                                                       </div>
                                                    </div>
                                                 </div>
@@ -234,7 +265,17 @@ $users = $users;
                                                       </span>
                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
                                                          <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
-                                                         <a class="dropdown-item" href="#">Block User</a>                                                   
+                                                         <a class="dropdown-item" href="<?php echo route('admin.signups.block', (string)($users[$i]->_id));?>">
+                                                         <?php
+                                                               
+                                                               if ($users[$i]['userBlocked']){
+                                                                 echo "Unblock User";
+                                                               }else{
+                                                                  echo "Block User";
+                                                               }
+                                                          ?>
+                                                            
+                                                         </a>                                                   
                                                       </div>
                                                    </div>
                                                 </div>
@@ -278,7 +319,17 @@ $users = $users;
                                                       </span>
                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
                                                          <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
-                                                         <a class="dropdown-item" href="#">Block User</a>                                                   
+                                                         <a class="dropdown-item" href="<?php echo route('admin.signups.block', (string)($users[$i]->_id));?>">
+                                                         <?php
+                                                               
+                                                               if ($users[$i]['userBlocked']){
+                                                                 echo "Unblock User";
+                                                               }else{
+                                                                  echo "Block User";
+                                                               }
+                                                          ?>
+                                                            
+                                                         </a>                                                   
                                                       </div>
                                                    </div>
                                                 </div>
@@ -324,7 +375,17 @@ $users = $users;
                                                       </span>
                                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
                                                          <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
-                                                         <a class="dropdown-item" href="#">Block User</a>                                                   
+                                                         <a class="dropdown-item" href="<?php echo route('admin.signups.block', (string)($users[$i]->_id));?>">
+                                                         <?php
+                                                               
+                                                               if ($users[$i]['userBlocked']){
+                                                                 echo "Unblock User";
+                                                               }else{
+                                                                  echo "Block User";
+                                                               }
+                                                          ?>
+                                                            
+                                                         </a>                                                   
                                                       </div>
                                                    </div>
                                                 </div>

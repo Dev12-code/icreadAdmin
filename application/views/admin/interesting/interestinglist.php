@@ -6,6 +6,11 @@ if(!$user_id){
 	redirect(route('admin.auth.login'));
 }
 
+
+
+  
+
+
 ?>
 
 <!doctype html>
@@ -23,7 +28,7 @@ if(!$user_id){
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/vanillajs-datepicker/dist/css/datepicker.min.css">
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/font-awesome-line-awesome/css/all.min.css">
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      
+    
   </head>
 
  
@@ -55,31 +60,33 @@ if(!$user_id){
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     
                                     </button>
-                                 </div>                                 
-                                 <div class="modal-body">
-                                    <form method="get" enctype="multipart/form-data">         
-                                       <div class="form-group row">
-                                          <input type="file" name="receipt" id="receipt" class="form-control" onchange="readURL(this,'edit');">
-                                          <input type="hidden" name="receipt_name" id="receipt_name" class="form-control">
-                                       </div>
-                                       <div class="form-group row">
-                                          <label for="subject" class="col-sm-2 col-form-label">Title:</label>
-                                          <div class="col-sm-10">
-                                                <input type="text"  id="subject" class="form-control">
+                                 </div>           
+                                 <form method="post" enctype="multipart/form-data" action="<?php echo route('admin.interesting.createInterest');?>">         
+                      
+                                    <div class="modal-body">
+                                          <!-- <div class="form-group row">
+                                             <input type="file" name="receipt" id="receipt" class="form-control" onchange="readURL(this,'edit');">
+                                             <input type="hidden" name="receipt_name" id="receipt_name" class="form-control">
+                                          </div> -->                                       
+                                          <div class="form-group row">
+                                             <label for="subject" class="col-sm-2 col-form-label">Title:</label>
+                                             <div class="col-sm-10">
+                                                   <input type="text"  id="title" name="title" class="form-control" placeholder="Enter title" required>
+                                             </div>
                                           </div>
-                                       </div>
-                                       <div class="form-group row">
-                                          <label for="subject" class="col-sm-2 col-form-label">Content:</label>
-                                          <div class="col-md-10">
-                                                <textarea class="textarea form-control" rows="5"></textarea>
-                                          </div>
-                                       </div>                                      
-                                    </form>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                 </div>
+                                          <div class="form-group row">
+                                             <label for="subject" class="col-sm-2 col-form-label">Content:</label>
+                                             <div class="col-md-10">
+                                                   <textarea class="textarea form-control" rows="5" id = "content"  name = "content" placeholder="Enter description" required></textarea>
+                                             </div>
+                                          </div>                                      
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                       <button type="submit" class="btn btn-primary" >Save</button>
+                                    </div>
+                                 </form>
+
                               </div>
                            </div>
                         </div>
@@ -113,15 +120,82 @@ if(!$user_id){
                                              </span>
                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton01">
                                                 <!-- <a class="dropdown-item" href="#">Send Notification</a> -->
-                                                <a class="dropdown-item" href="#">Remove Interest</a>          
-                                                <a class="dropdown-item" href="#">Edit Interest</a>                                                   
-                                         
+                                                <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#removeModal<?php echo $i?>" >Remove Interest</button>  
+                                                <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $i?>" >Edit Interest</button>                                               
                                              </div>
                                           </div>
                                        </div>
                                     </div>
                                  </div>
-                              </div>                                    
+                                 <!-- Modal -->
+                                <div class="modal fade" id="removeModal<?php echo $i?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                       <div class="modal-content">
+                                          <div class="modal-header">
+                                             <h5 class="modal-title" id="exampleModalLabel">Remove Interest</h5>
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                             
+                                             </button>
+                                          </div>
+                                          <form method="post" enctype="multipart/form-data" action="<?php echo route('admin.interesting.removeInterest');?>">         
+                                             <div class="modal-body">
+                                                Would you like to remove this interest?
+
+                                             </div>
+                                             <div class="form-group row">
+                                                <div class="col-sm-10">
+                                                      <input  type="hidden"  id="interest_id" name="interest_id" class="form-control" placeholder="Enter title" value="<?php echo $interestings[$i]->_id;?>">
+                                                </div>
+                                           </div>
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary">Remove</button>
+                                             </div>
+                                          </form>
+                                       </div>
+                                    </div>
+                                 </div>
+                                  <!-- EditModal -->
+                                 <div class="modal fade" id="editModal<?php echo $i?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                       <div class="modal-content">
+                                          <div class="modal-header">
+                                             <h5 class="modal-title" id="exampleModalLabel">Create Interest</h5>
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                             
+                                             </button>
+                                          </div>           
+                                          <form method="post" enctype="multipart/form-data" action="<?php echo route('admin.interesting.editInterest');?>">         
+                              
+                                             <div class="modal-body">
+                                                   <!-- <div class="form-group row">
+                                                      <input type="file" name="receipt" id="receipt" class="form-control" onchange="readURL(this,'edit');">
+                                                      <input type="hidden" name="receipt_name" id="receipt_name" class="form-control">
+                                                   </div> -->                        
+                                                   <input  type="hidden"  id="interest_id" name="interest_id" class="form-control" placeholder="Enter title" value="<?php echo $interestings[$i]->_id;?>">               
+                                                   <div class="form-group row">
+                                                      <label for="subject" class="col-sm-2 col-form-label">Title:</label>
+                                                      <div class="col-sm-10">
+                                                            <input type="text"  id="title" name="title" class="form-control" placeholder="Enter title" required value="<?php echo $interestings[$i]['slug'] ;?>">
+                                                      </div>
+                                                   </div>
+                                                   <div class="form-group row">
+                                                      <label for="subject" class="col-sm-2 col-form-label">Content:</label>
+                                                      <div class="col-md-10">
+                                                            <textarea class="textarea form-control" rows="5" id = "content"  name = "content" placeholder="Enter description" required> <?php  echo $interestings[$i]['description'];?></textarea>
+                                                      </div>
+                                                   </div>                                      
+                                             </div>
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary" >Save</button>
+                                             </div>
+                                          </form>
+
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>                                      
                            <?php endfor;?>
                         </div>
                      </div>
@@ -151,8 +225,19 @@ if(!$user_id){
     <script src="<?php echo base_url();?>/assets/js/lottie.js"></script>
     
     <script>
-      
-      console.log("=====");
+        $( document ).ready(function() {
+               $toastFlag = <?php echo json_encode($toastFlag);?>;
+          if($toastFlag == 0){
+              
+                        toastr.error('Failed Action!')
+
+            }else if($toastFlag ==1 ) {
+                 toastr.success('Action Successfully!')
+
+            }
+               
+         });
+     
       $("#li_forum").addClass('');
       $("#li_users").addClass('');
       $("#li_interesting").addClass('active');

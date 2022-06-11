@@ -1,5 +1,7 @@
 <?php
 
+use SebastianBergmann\Environment\Console;
+
 /**
  * Created by PhpStorm.
  * User: zeus
@@ -22,9 +24,11 @@ class InterestingController extends MY_Controller
         parent::__construct();
     }
 
-    public function index() {
+    public function index($result = -1) {
         $dataToBeDisplayed['interestings'] = $this->Interesting_model->getInterestingListInDashboard();    
         // print_r(json_encode( $dataToBeDisplayed['users']));
+        $dataToBeDisplayed['toastFlag'] = $result;    
+
         $this->load->view('admin/interesting/interestinglist',  $dataToBeDisplayed);
     }
 
@@ -36,16 +40,45 @@ class InterestingController extends MY_Controller
 
     }
 
-    public function ajax_get_login_chart() {
-        $loginHistory = array();
-        $userId = $this->input->post('userId');
-        $startDate = $this->input->post('start');
-        $endDate = $this->input->post('end');
-        $startDateStr = date('Y-m-d', $startDate);
-        $endDateStr = date('Y-m-d', $endDate);
-        $retVal = $this->LoginHistory_model->getLoginHistoryTimeInterval($userId, $startDateStr, $endDateStr);
-        echo json_encode($retVal);
-//        echo json_encode(array($startDateStr, $endDateStr));
+    public function createInterest() {        
+        $setArray = array(
+            'label' => ucfirst($this->input->post('title')),
+            'description' => ucfirst($this->input->post('content')),
+            'slug' => $this->input->post('title'),
+            'image_url' => "",
+            'subscribers' => [],
+            'type' => "interest",
+            'type' => "play",
+
+
+        );
+        $result = $this->Interesting_model->createInterest($setArray);         
+        $this->index($result);
+
+    }
+    public function removeInterest() {        
+        $setArray = array(
+            '_id' => new MongoDB\BSON\ObjectID(($this->input->post('interest_id'))),            
+
+        );
+        // print_r(json_encode($setArray));
+        $result = $this->Interesting_model->removeInterest($setArray);         
+        $this->index($result);
+    }
+    public function editInterest() { 
+        $where = array(
+            '_id' => new MongoDB\BSON\ObjectID(($this->input->post('interest_id'))),            
+
+        );       
+        $setArray = array(
+            'label' => ucfirst($this->input->post('title')),
+            'description' => ucfirst($this->input->post('content')),
+            'slug' => $this->input->post('title'),            
+
+        );
+        $result = $this->Interesting_model->editInterest($where,$setArray);         
+        $this->index($result);
+
     }
 
     function doUpload()

@@ -19,5 +19,27 @@ class Interesting_model extends MY_Model{
         $user['posts'] = $posts;
         return $user;
     }
+    public function createInterest($where = array()) {
+        try {
+            $interesting = $this->db -> interests->insertOne($where);
+        } catch (Exception $e) {
+            return 0;
+
+        }
+        return 1;
+
+    }
+    public function removeInterest($where = array()) {
+      
+        $interesting = $this->db -> interests->deleteOne($where);      
+        
+        return 1;
+
+    }
+    public function editInterest($whereArray = array(), $setArray = array()) {
+        $interesting = $this->db -> interests->updateOne($whereArray, ['$set' => $setArray]);       
+        return 1;
+
+    }
 
 }

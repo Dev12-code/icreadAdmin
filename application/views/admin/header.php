@@ -34,7 +34,9 @@ if(!$user_id){
       <link rel="stylesheet" href="<?php echo base_url();?>/assets/css//flickity.css">
       <script src="<?php echo base_url();?>/assets/js/flickity.js"></script>
   <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
-
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>     
   </head>
   <body class="  ">
     <!-- loader Start -->

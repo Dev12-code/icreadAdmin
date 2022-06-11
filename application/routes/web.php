@@ -40,6 +40,10 @@
     Route::group('admin/interesting', ['namespace' => 'admin'], function() {
         Route::get('/', 'InterestingController@index')->name('admin.interesting.index');       
         Route::post('/doUpload', 'InterestingController@doUpload') -> name('admin.interesting.doUpload');
+        Route::post('/createInterest', 'InterestingController@createInterest')->name('admin.interesting.createInterest');       
+        Route::post('/removeInterest', 'InterestingController@removeInterest')->name('admin.interesting.removeInterest');       
+        Route::post('/editInterest', 'InterestingController@editInterest')->name('admin.interesting.editInterest');       
+
 
     });
     Route::set('translate_uri_dashes',FALSE);
